@@ -1,0 +1,11 @@
+# Run from inside this docker/ folder:  docker compose up --build
+# Then open http://localhost:8888 to browse and run the project files.
+services:
+  jupyter:
+    build:
+      context: ..                    # the repo root
+      dockerfile: docker/Dockerfile
+    ports:
+      - "127.0.0.1:8888:8888"        # only reachable from this computer
+    volumes:
+      - ..:/app                      # the project folder appears at /app inside the container
